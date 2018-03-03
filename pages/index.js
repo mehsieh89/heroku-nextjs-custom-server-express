@@ -4,7 +4,7 @@ import Home from '../components/home.js';
 
 // {/* <li><Link href='/a' as='/b'><a>b</a></Link></li> */}
 export default () => (
-  <ul>
+  <div>
     <Home/>
-  </ul>
+  </div>
 )
