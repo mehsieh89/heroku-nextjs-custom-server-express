@@ -5,7 +5,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3000
 const app = next({ dir: '.', dev })
 const bodyParser = require('body-parser');
-const db = require('./databaseIndex.js');
+// const Ebutuoy = require('./databaseIndex.js');
 const axios = require('axios');
 const config = require('./config/index.js');
 const handle = app.getRequestHandler()
@@ -21,12 +21,11 @@ const YOUTUBE_COMMENTS_URL_2 = "&textFormat=plainText&part=snippet&maxResults=10
 
 app.prepare()
 .then(() => {
+  const Ebutuoy = require('./databaseIndex.js');
   const server = express()
   server.use(bodyParser.json());
 
   server.post('/search', (req, res) => {
-    console.log('hit server');
-    console.log(req.body.value);
     axios.get(YOUTUBE_BASE_URL + YOUTUBE_SEARCH_URL_1 + req.body.value + YOUTUBE_SEARCH_URL_2)
     .then((data) => {
       res.send(data.data.items);
