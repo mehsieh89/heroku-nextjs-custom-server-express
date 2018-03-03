@@ -74,7 +74,7 @@ class Search extends Component {
             value="Search"
             className="submitbutton"/>
           <button
-            className={custom.videoButton}
+            className="videoButton"
             type="button"
             onClick={this.handleOnClick}>
             Past Videos

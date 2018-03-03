@@ -11,8 +11,8 @@ class CommentEntry extends Component {
   render() {
     let commentObj = this.props.moreProps.comments[this.props.index];
     return (
-      <div className={custom.commentBox}>
-        <div className={custom.commentUser}> {commentObj.user}</div>
+      <div className="commentBox">
+        <div className="commentUser"> {commentObj.user}</div>
         <div> {commentObj.text}</div>
       </div>
     );

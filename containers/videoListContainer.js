@@ -64,7 +64,7 @@ class VideoListContainer extends Component {
     })
     if (this.props.searched) {
       return (
-        <div className={custom.videoList}>
+        <div className="videoList">
           {videoList}
         </div>
       );

@@ -18,6 +18,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state.value);
     let options = {
       value: this.state.value,
     };
@@ -31,13 +32,19 @@ class Home extends Component {
         id: res.data[0].id.videoId
       }
       axios.post('/videoInfo', options)
-      .then((data) => {
-        this.props.changeMainVideoInfo(data.data);
-      })
+        .then((data) => {
+          this.props.changeMainVideoInfo(data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       axios.post('./videoComments', options)
-      .then((resp) => {
-        this.props.importComments(resp.data);
-      })
+        .then((resp) => {
+          this.props.importComments(resp.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     })
     .then(() => {
       this.props.changeMainVideo(0);
@@ -64,16 +71,16 @@ class Home extends Component {
     }
     return (
       <div>
-        <header className={custom.appHeader}>
-          <div className={custom.headerText}>
+        <header className="appHeader">
+          <div className="headerText">
             Ebutuoy
           </div>
         </header>
-        <div className={custom.searchDiv}>
+        <div className="searchDiv">
           <SearchBarContainer
             {...this.props}
           />
-          <div className={custom.mainContainer}>
+          <div className="mainContainer">
             {player}
             {list}
           </div>
@@ -90,19 +97,17 @@ Home.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    name: state.app.name,
-    videos: state.video.current,
-    skipIndex: state.video.skipIndex,
-    searched: state.video.searched,
-    mainVideo: state.video.mainVideo,
-    mainVideoInfo: state.video.mainVideoInfo,
-    comments: state.video.comments,
+    videos: state.allReducers.current,
+    skipIndex: state.allReducers.skipIndex,
+    searched: state.allReducers.searched,
+    mainVideo: state.allReducers.mainVideo,
+    mainVideoInfo: state.allReducers.mainVideoInfo,
+    comments: state.allReducers.comments,
   };
 };
 
 const matchDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    changeName: changeName,
     importVideos: importVideos,
     changeSkipIndex: changeSkipIndex,
     toggleSearchResults: toggleSearchResults,
@@ -112,6 +117,6 @@ const matchDispatchToProps = (dispatch) => {
   }, dispatch);
 };
 
-  export default connect(mapStateToProps, matchDispatchToProps)(Home);
+export default connect(mapStateToProps, matchDispatchToProps)(Home);
 
   // export default connect(mapStateToProps, dispatch => ({ dispatch }))(Home);
