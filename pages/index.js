@@ -1,5 +1,5 @@
 import React from 'react'
-import Test from '../components/test.jsx';
+import Test from '../components/test.js';
 import Link from 'next/link'
 
 export default () => (
