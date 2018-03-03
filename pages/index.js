@@ -1,11 +1,10 @@
 import React from 'react'
-import Test from '../components/test.js';
-import Link from 'next/link'
+import Home from '../components/home.js';
+// import Link from 'next/link'
 
+// {/* <li><Link href='/a' as='/b'><a>b</a></Link></li> */}
 export default () => (
   <ul>
-    <li><Link href='/b' as='/a'><a>a</a></Link></li>
-    <li><Link href='/a' as='/b'><a>b</a></Link></li>
-    <Test/>
+    <Home/>
   </ul>
 )
