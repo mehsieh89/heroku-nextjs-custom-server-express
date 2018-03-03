@@ -22,4 +22,4 @@ var EbutuoySchema = new Schema({
 
 var Ebutuoy = mongoose.model('Ebutuoy', EbutuoySchema);
 
-export default Ebutuoy;
+module.exports = Ebutuoy;
