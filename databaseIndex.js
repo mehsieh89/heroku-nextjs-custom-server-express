@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // const config = require('../config/index.js');
 // const DATABASE_URL = config.DATABASE_URL;
-mongoose.connect(DATABASE_URL);
+mongoose.connect(process.env.MONGODB_URI);
 // mongoose.connect('mongodb://localhost/test');
 
 var db = mongoose.connection;
