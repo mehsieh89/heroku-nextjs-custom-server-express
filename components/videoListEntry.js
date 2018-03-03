@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import custom from "../styles/custom.css";
 
 class VideoListEntry extends Component {
   constructor(props) {

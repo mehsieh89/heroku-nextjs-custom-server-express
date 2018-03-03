@@ -8,10 +8,6 @@ import SearchBarContainer from "../containers/searchBarContainer.js";
 import VideoPlayerContainer from '../containers/videoPlayerContainer.js';
 import VideoListContainer from '../containers/videoListContainer.js';
 import axios from 'axios';
-import "../styles/normalize.css";
-import "../styles/raleway.css";
-import skeleton from "../styles/skeleton.css";
-import custom from "../styles/custom.css";
 
 class Home extends Component {
   constructor(props) {

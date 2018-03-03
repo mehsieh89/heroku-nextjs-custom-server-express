@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import custom from "../styles/custom.css";
 import CommentEntry from '../components/commentEntry.js';
 
 class CommentsContainer extends Component {
