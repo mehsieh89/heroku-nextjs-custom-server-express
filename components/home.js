@@ -18,7 +18,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.value);
     let options = {
       value: this.state.value,
     };

@@ -17,7 +17,7 @@ class VideoListEntry extends Component {
     const video = this.props.video;
     return (
       <div className="videoListEntry">
-        <div onClick={this.handleOnClick} className={custom.videoListEntryTitle}> {video.snippet.title} </div>
+        <div onClick={this.handleOnClick} className="videoListEntryTitle"> {video.snippet.title} </div>
         <img onClick={this.handleOnClick} src={video.snippet.thumbnails.default.url} alt=""/>
       </div>
     );

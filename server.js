@@ -18,11 +18,15 @@ const YOUTUBE_INFO_URL = "videos?part=statistics&id=";
 const YOUTUBE_COMMENTS_URL = "commentThreads?key=";
 const YOUTUBE_COMMENTS_URL_2 = "&textFormat=plainText&part=snippet&maxResults=10&videoId=";
 
+
 app.prepare()
 .then(() => {
   const server = express()
+  server.use(bodyParser.json());
 
   server.post('/search', (req, res) => {
+    console.log('hit server');
+    console.log(req.body.value);
     axios.get(YOUTUBE_BASE_URL + YOUTUBE_SEARCH_URL_1 + req.body.value + YOUTUBE_SEARCH_URL_2)
     .then((data) => {
       res.send(data.data.items);
@@ -67,7 +71,6 @@ app.prepare()
   })
 
   server.post('/databaseAdd', (req, res) => {
-    console.log(req.body.name)
     let videoName = new Ebutuoy ({
       name: req.body.name
     })
