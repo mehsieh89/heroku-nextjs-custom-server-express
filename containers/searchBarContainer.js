@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { RaisedButton, TextField } from 'material-ui';
+import EnterTextField from 'material-ui-submit-field';
 import axios from 'axios';
 
 class Search extends Component {
@@ -62,13 +63,10 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <TextField
-          onChange={this.handleOnChange}
+        <EnterTextField
+          onEnterKeyPress={this.handleSearch}
           hintText="Search"
-          style={{
-            margin: '0 auto',
-            maxWidth: 400
-          }}
+          onChange={this.handleOnChange}
         />
         <RaisedButton
           label="Video History"
