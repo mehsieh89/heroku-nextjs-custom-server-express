@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from 'material-ui-search-bar'
 import axios from 'axios';
 
 class Search extends Component {
@@ -61,6 +62,14 @@ class Search extends Component {
   render() {
     return (
       <div>
+        <SearchBar
+          onChange={() => console.log('yay')}
+          onRequestSearch={() => console.log('woot')}
+          style={{
+            margin: '0 auto',
+            maxWidth: 800
+          }}
+        />
         <form onSubmit={this.handleSearch}>
           <input
             type="text"
