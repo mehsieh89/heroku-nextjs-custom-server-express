@@ -61,16 +61,32 @@ class SearchComponent extends Component {
           onEnterKeyPress={this.handleSearch}
           hintText="Search"
           onChange={this.handleOnChange}
+          underlineStyle={styles.underlineStyle}
+          underlineFocusStyle={styles.underlineFocusStyle}
         />
-        <IconButton tooltip="Search">
+        <IconButton
+          style={styles.iconButton}>
           <Search
             onTouchTap={this.handleSearch}
-            color='#31575B'
-            hoverColor='#C22B33'
+            color='#A9B7C0'
+            hoverColor='#CCCBC6'
           />
         </IconButton>
       </div>
     );
+  }
+}
+
+const styles = {
+  iconButton: {
+    postion: "relative",
+    top: "5px",
+  },
+  underlineStyle: {
+   borderColor: "#C7D8C6",
+  },
+  underlineFocusStyle: {
+    borderColor: "#A9B7C0"
   }
 }
 
