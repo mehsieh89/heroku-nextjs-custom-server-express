@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { RaisedButton, TextField } from 'material-ui';
 import EnterTextField from 'material-ui-submit-field';
+import IconButton from 'material-ui/IconButton';
+import Clear from 'material-ui-icons/Clear';
 import axios from 'axios';
 
 class Search extends Component {
@@ -68,6 +70,13 @@ class Search extends Component {
           hintText="Search"
           onChange={this.handleOnChange}
         />
+        <IconButton tooltip="Search">
+          <Search
+            onTouchTap={this.handleSearch}
+            color='#31575B'
+            hoverColor='#C22B33'
+          />
+        </IconButton>
         <RaisedButton
           label="Video History"
           onClick={this.handleOnClick}
