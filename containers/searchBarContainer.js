@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchBar from 'material-ui-search-bar'
+import { RaisedButton, TextField } from 'material-ui';
 import axios from 'axios';
 
 class Search extends Component {
@@ -62,33 +62,18 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <SearchBar
-          onChange={() => console.log('yay')}
-          onRequestSearch={() => console.log('woot')}
+        <TextField
+          onChange={this.handleOnChange}
+          hintText="Search"
           style={{
             margin: '0 auto',
-            maxWidth: 800
+            maxWidth: 400
           }}
         />
-        <form onSubmit={this.handleSearch}>
-          <input
-            type="text"
-            value={this.state.value}
-            placeholder="Search"
-            onChange={this.handleOnChange}
-            className="textbox"
-          />
-          <input
-            type="submit"
-            value="Search"
-            className="submitbutton"/>
-          <button
-            className="videoButton"
-            type="button"
-            onClick={this.handleOnClick}>
-            Past Videos
-          </button>
-        </form>
+        <RaisedButton
+          label="Video History"
+          onClick={this.handleOnClick}
+        />
       </div>
     );
   }
