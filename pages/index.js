@@ -5,6 +5,9 @@ import React, {Component} from "react";
 import {createStore} from "redux";
 import { bindActionCreators } from 'redux';
 import Home from '../components/home.js';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import allReducers from "../reducers/index.js";
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
         changeSkipIndex, changeMainVideoInfo, importComments, } from "../actions";
@@ -14,6 +17,10 @@ const makeStore = (initialState, options) => {
   return createStore(allReducers, initialState);
 };
 
+try { injectTapEventPlugin(); } catch (e) {  }
+
+const muiTheme = getMuiTheme({ userAgent: false });
+
 class Page extends Component {
   static getInitialProps({store, isServer, pathname, query}) {
     store.dispatch({type: 'IMPORT_VIDEOS', payload: []}); // component will be able to read from store's state when rendered
@@ -21,9 +28,11 @@ class Page extends Component {
   }
   render() {
     return (
-      <div>
-        <Home/>
-      </div>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div>
+          <Home/>
+        </div>
+      </MuiThemeProvider>
     )
   }
 }
