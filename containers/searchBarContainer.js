@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { RaisedButton, TextField } from 'material-ui';
 import EnterTextField from 'material-ui-submit-field';
 import IconButton from 'material-ui/IconButton';
-import Clear from 'material-ui-icons/Clear';
+import Search from 'material-ui-icons/Search';
 import axios from 'axios';
 
-class Search extends Component {
+class SearchComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -86,4 +86,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchComponent;
