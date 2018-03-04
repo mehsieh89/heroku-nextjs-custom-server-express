@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { RaisedButton, TextField } from 'material-ui';
+import { TextField } from 'material-ui';
 import EnterTextField from 'material-ui-submit-field';
 import IconButton from 'material-ui/IconButton';
 import Search from 'material-ui-icons/Search';
@@ -13,7 +13,6 @@ class SearchComponent extends Component {
     };
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleOnChange(e) { this.setState({ value: e.target.value }); }
@@ -55,13 +54,6 @@ class SearchComponent extends Component {
     });
   }
 
-  handleOnClick() {
-    axios.get('/retrieveVideos')
-    .then((data) => {
-      console.log(data.data);
-    })
-  }
-
   render() {
     return (
       <div>
@@ -77,10 +69,6 @@ class SearchComponent extends Component {
             hoverColor='#C22B33'
           />
         </IconButton>
-        <RaisedButton
-          label="Video History"
-          onClick={this.handleOnClick}
-        />
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { RaisedButton } from 'material-ui';
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
         changeSkipIndex, changeMainVideoInfo, importComments, } from "../actions";
 import SearchBarContainer from "../containers/searchBarContainer.js";
@@ -14,7 +15,8 @@ class Home extends Component {
     super(props);
     this.state = {
       value: "cute puppy",
-    }
+    };
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -56,8 +58,14 @@ class Home extends Component {
     });
   }
 
+  handleOnClick() {
+    axios.get('/retrieveVideos')
+    .then((data) => {
+      console.log(data.data);
+    })
+  }
+
   render() {
-    let isLoading = this.props.isLoading;
     let list = null;
     let player = null;
     if (this.props.searched) {
@@ -70,22 +78,46 @@ class Home extends Component {
     }
     return (
       <div>
-        <header className="appHeader">
-          <div className="headerText">
+        <header style={styles.appHeader}>
+          <div style={styles.headerText}>
             Ebutuoy
           </div>
         </header>
-        <div className="searchDiv">
+        <div style={styles.searchBar}>
           <SearchBarContainer
             {...this.props}
           />
+        </div>
+        <RaisedButton
+          label="Video History"
+          onClick={this.handleOnClick}
+        />
           <div className="mainContainer">
             {player}
             {list}
           </div>
-        </div>
       </div>
     );
+  }
+}
+
+const styles = {
+  appHeader: {
+    backgroundColor: "#C7D8C6",
+    height: "100px",
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: "50px",
+    textShadow: "1px 1px black"
+  },
+  headerText: {
+    position: "relative",
+    top: "20px",
+  },
+  searchBar: {
+    textAlign: "center",
+    marginTop: "10px",
   }
 }
 
