@@ -13,13 +13,16 @@ class CommentEntry extends Component {
     return (
       <div style={styles.commentBox}>
         <div style={styles.commentUser}> {commentObj.user}</div>
-        <div> {commentObj.text}</div>
+        <div style={styles.comment}> {commentObj.text}</div>
       </div>
     );
   }
 }
 
 const styles = {
+  comment: {
+    wordWrap: "break-word"
+  },
   commentBox: {
     width: "640px",
     marginTop: '5px',
