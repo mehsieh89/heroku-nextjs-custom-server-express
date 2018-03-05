@@ -14,13 +14,13 @@ class VideoPlayer extends Component {
     const mainVideoInfo = this.props.mainVideoInfo;
     const comments = this.props.comments;
     return (
-      <div className="mainPLayer">
-        <iframe className="iframe" src={'https://www.youtube.com/embed/' + video.id.videoId} allowFullScreen></iframe>
-        <div className="mainPlayerInfo">
-          <div className="mainVideoTitle"> {video.snippet.title} </div>
+      <div>
+        <iframe style={styles.iframe} src={'https://www.youtube.com/embed/' + video.id.videoId} allowFullScreen></iframe>
+        <div style={styles.mainPlayerInfo}>
+          <div style={styles.mainVideoTitle}> {video.snippet.title} </div>
           <div> {video.snippet.description} </div>
-          <div className="likes"> likes: {mainVideoInfo.likes} </div>
-          <div className="dislikes"> dislikes: {mainVideoInfo.dislikes} </div>
+          <div style={styles.likes}> likes: {mainVideoInfo.likes} </div>
+          <div style={styles.dislikes}> dislikes: {mainVideoInfo.dislikes} </div>
         </div>
         <CommentsContainer
           {...this.props}
@@ -28,6 +28,35 @@ class VideoPlayer extends Component {
       </div>
     );
   }
+}
+
+const styles = {
+  iframe: {
+    width: "640px",
+    height: "385px",
+    border: "2px solid black",
+  },
+  mainPlayerInfo: {
+    textAlign: "left",
+    border: "2px solid black",
+    marginTop: "15px",
+  },
+  mainPLayerTitle: {
+    fontSize: "20px",
+    fontWeight: "bold",
+  },
+  mainVideoTitle: {
+    fontSize: "20px",
+    fontWeight: "bold",
+  },
+  likes: {
+    fontWeight: "bold",
+    color: "blue",
+  },
+  dislikes: {
+    fontWeight: "bold",
+    color: "red",
+  },
 }
 
 export default VideoPlayer;

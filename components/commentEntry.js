@@ -11,12 +11,25 @@ class CommentEntry extends Component {
   render() {
     let commentObj = this.props.moreProps.comments[this.props.index];
     return (
-      <div className="commentBox">
-        <div className="commentUser"> {commentObj.user}</div>
+      <div style={styles.commentBox}>
+        <div style={styles.commentUser}> {commentObj.user}</div>
         <div> {commentObj.text}</div>
       </div>
     );
   }
+}
+
+const styles = {
+  commentBox: {
+    width: "640px",
+    marginTop: '5px',
+    border: "1px solid black",
+    textAlign: "left",
+  },
+  commentUser: {
+    fontWeight: "bold",
+    frontSize: "14px",
+  },
 }
 
 //<div className={custom.MainPLayerComments}> {comments[0].user} </div>

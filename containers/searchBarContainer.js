@@ -58,8 +58,10 @@ class SearchComponent extends Component {
     return (
       <div>
         <EnterTextField
+          style={styles.searchInput}
           onEnterKeyPress={this.handleSearch}
           hintText="Search"
+          fullWidth={true}
           onChange={this.handleOnChange}
           underlineStyle={styles.underlineStyle}
           underlineFocusStyle={styles.underlineFocusStyle}
@@ -81,6 +83,9 @@ const styles = {
   iconButton: {
     postion: "relative",
     top: "5px",
+  },
+  searchInput: {
+    width: "450px",
   },
   underlineStyle: {
    borderColor: "#C7D8C6",

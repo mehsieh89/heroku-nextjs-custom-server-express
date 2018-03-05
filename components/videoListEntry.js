@@ -16,12 +16,41 @@ class VideoListEntry extends Component {
   render() {
     const video = this.props.video;
     return (
-      <div className="videoListEntry">
-        <div onClick={this.handleOnClick} className="videoListEntryTitle"> {video.snippet.title} </div>
-        <img onClick={this.handleOnClick} src={video.snippet.thumbnails.default.url} alt=""/>
+      <div style={styles.videoListEntry}>
+        <img
+          onClick={this.handleOnClick}
+          src={video.snippet.thumbnails.default.url}
+          alt=""
+          style={styles.img}
+        />
+        <div
+          onClick={this.handleOnClick}
+          style={styles.videoListEntryTitle}>
+          {video.snippet.title}
+        </div>
       </div>
     );
   }
+}
+
+const styles = {
+  videoListEntry: {
+    marginBottom: "25px",
+    border: "1px solid black",
+    cursor: "pointer",
+    frontWeight: "bold",
+    display: "flex",
+    flexDirection: "row",
+  },
+  videoListEntryTitle: {
+    position: "relative",
+    left: "5px",
+    fontWeight: "bold",
+  },
+  img: {
+    width: "160px",
+    position: "relative",
+  },
 }
 
 export default VideoListEntry;

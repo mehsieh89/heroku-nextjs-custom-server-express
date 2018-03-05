@@ -64,13 +64,22 @@ class VideoListContainer extends Component {
     })
     if (this.props.searched) {
       return (
-        <div className="videoList">
+        <div style={styles.videoList}>
           {videoList}
         </div>
       );
     } else {
       return null;
     }
+  }
+}
+
+const styles = {
+  videoList: {
+    position: "relative",
+    left: "100px",
+    height: "100%",
+    width: "250px"
   }
 }
 

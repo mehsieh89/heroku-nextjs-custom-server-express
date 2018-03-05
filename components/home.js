@@ -89,10 +89,11 @@ class Home extends Component {
           />
         </div>
         <RaisedButton
+          style={styles.button}
           label="Video History"
           onClick={this.handleOnClick}
         />
-          <div className="mainContainer">
+          <div style={styles.mainContainer}>
             {player}
             {list}
           </div>
@@ -111,6 +112,11 @@ const styles = {
     fontSize: "50px",
     textShadow: "1px 1px black"
   },
+  button: {
+    position: "relative",
+    bottom: "40px",
+    left: "75px",
+  },
   headerText: {
     position: "relative",
     top: "20px",
@@ -118,6 +124,14 @@ const styles = {
   searchBar: {
     textAlign: "center",
     marginTop: "10px",
+  },
+  mainContainer: {
+    display: "flex",
+    flexDirection: "row",
+    width: "50%",
+    margin: "0 auto",
+    position: "relative",
+    right: "75px",
   }
 }
 
