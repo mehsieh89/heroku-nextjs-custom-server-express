@@ -4,10 +4,12 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { RaisedButton } from 'material-ui';
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
-        changeSkipIndex, changeMainVideoInfo, importComments, } from "../actions";
+        changeSkipIndex, changeMainVideoInfo, importComments, toggleDialog,
+        importVideoHistory } from "../actions";
 import SearchBarContainer from "../containers/searchBarContainer.js";
 import VideoPlayerContainer from '../containers/videoPlayerContainer.js';
 import VideoListContainer from '../containers/videoListContainer.js';
+import DialogContainer from '../containers/dialogContainer.js';
 import axios from 'axios';
 
 class Home extends Component {
@@ -61,7 +63,10 @@ class Home extends Component {
   handleOnClick() {
     axios.get('/retrieveVideos')
     .then((data) => {
-      console.log(data.data);
+      this.props.importVideoHistory(data.data);
+    })
+    .then(() => {
+      this.props.toggleDialog();
     })
   }
 
@@ -89,14 +94,22 @@ class Home extends Component {
           />
         </div>
         <RaisedButton
-          style={styles.button}
           label="Video History"
+          labelColor="white"
+          labelStyle={styles.label}
+          style={styles.button}
+          backgroundColor="#56B1BF"
           onClick={this.handleOnClick}
         />
-          <div style={styles.mainContainer}>
-            {player}
-            {list}
-          </div>
+        <div style={styles.mainContainer}>
+          {player}
+          {list}
+        </div>
+        <DialogContainer
+          videoHist={this.props.videoHist}
+          showDialog={this.props.showDialog}
+          toggleDialog={this.props.toggleDialog}
+        />
       </div>
     );
   }
@@ -104,7 +117,7 @@ class Home extends Component {
 
 const styles = {
   appHeader: {
-    backgroundColor: "#C7D8C6",
+    backgroundColor: "#56B1BF",
     height: "100px",
     color: "white",
     textAlign: "center",
@@ -120,6 +133,9 @@ const styles = {
   headerText: {
     position: "relative",
     top: "20px",
+  },
+  label: {
+    textShadow: "1px 1px black"
   },
   searchBar: {
     textAlign: "center",
@@ -148,6 +164,8 @@ const mapStateToProps = state => {
     mainVideo: state.allReducers.mainVideo,
     mainVideoInfo: state.allReducers.mainVideoInfo,
     comments: state.allReducers.comments,
+    showDialog: state.allReducers.showDialog,
+    videoHist: state.allReducers.videoHist,
   };
 };
 
@@ -159,6 +177,8 @@ const matchDispatchToProps = (dispatch) => {
     changeMainVideo: changeMainVideo,
     changeMainVideoInfo: changeMainVideoInfo,
     importComments: importComments,
+    toggleDialog: toggleDialog,
+    importVideoHistory: importVideoHistory,
   }, dispatch);
 };
 

@@ -51,11 +51,11 @@ const styles = {
   },
   likes: {
     fontWeight: "bold",
-    color: "blue",
+    color: "#08708A",
   },
   dislikes: {
     fontWeight: "bold",
-    color: "red",
+    color: "#D73A31",
   },
 }
 

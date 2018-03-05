@@ -70,8 +70,8 @@ class SearchComponent extends Component {
           style={styles.iconButton}>
           <Search
             onTouchTap={this.handleSearch}
-            color='#A9B7C0'
-            hoverColor='#CCCBC6'
+            color='#56B1BF'
+            hoverColor='#032B2F'
           />
         </IconButton>
       </div>
@@ -88,10 +88,10 @@ const styles = {
     width: "450px",
   },
   underlineStyle: {
-   borderColor: "#C7D8C6",
+   borderColor: "#D0D3C5",
   },
   underlineFocusStyle: {
-    borderColor: "#A9B7C0"
+    borderColor: "#56B1BF"
   }
 }
 

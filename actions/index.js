@@ -46,3 +46,16 @@ export const importComments = (array) => {
     payload: array
   };
 }
+
+export const toggleDialog = () => {
+  return {
+    type: 'TOGGLE_DIALOG',
+  };
+};
+
+export const importVideoHistory = (array) => {
+  return {
+    type: 'IMPORT_VIDEO_HISTORY',
+    payload: array
+  };
+};
