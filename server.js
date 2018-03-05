@@ -13,7 +13,7 @@ const handle = app.getRequestHandler()
 const YOUTUBE_API_KEY = "&key=" + config.YOUTUBE_API_KEY;
 const YOUTUBE_BASE_URL = "https://www.googleapis.com/youtube/v3/"
 const YOUTUBE_SEARCH_URL_1 = "search?part=snippet&q=";
-const YOUTUBE_SEARCH_URL_2 = ("&type=video&order=viewCount" + YOUTUBE_API_KEY);
+const YOUTUBE_SEARCH_URL_2 = ("&maxResults=10&type=video&order=viewCount" + YOUTUBE_API_KEY);
 const YOUTUBE_INFO_URL = "videos?part=statistics&id=";
 const YOUTUBE_COMMENTS_URL = "commentThreads?key=";
 const YOUTUBE_COMMENTS_URL_2 = "&textFormat=plainText&part=snippet&maxResults=10&videoId=";
